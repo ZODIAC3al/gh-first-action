@@ -5,5 +5,6 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Output GitHub Context
-        run: echo "${{toJson(github)}}" # getting some metadata => as data object
-
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$env:GITHUB_CONTEXT"
